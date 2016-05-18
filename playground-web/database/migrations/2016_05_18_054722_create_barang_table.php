@@ -25,6 +25,11 @@ class CreateBarangTable extends Migration
             
             $table->timestamps();
         });
+        
+        Schema::table('barang', function ($table) {
+            $table->foreign('supplier_id')
+                ->references('supplier_id')->on('supplier');
+        });
     }
 
     /**

@@ -20,6 +20,11 @@ class CreateDetailTransaksiTable extends Migration
             
             $table->timestamps();
         });
+        
+        Schema::table('detail_transaksi', function ($table) {
+            $table->foreign('transaksi_id')
+                ->references('transaksi_id')->on('transaksi');
+        });
     }
 
     /**

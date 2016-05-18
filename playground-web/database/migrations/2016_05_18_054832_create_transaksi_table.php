@@ -22,6 +22,13 @@ class CreateTransaksiTable extends Migration
             
             $table->timestamps();
         });
+        
+        Schema::table('transaksi', function ($table) {
+            $table->foreign('pembeli_id')
+                ->references('pembeli_id')->on('pembeli');
+            $table->foreign('petugas_id')
+                ->references('petugas_id')->on('petugas');
+        });
     }
 
     /**
